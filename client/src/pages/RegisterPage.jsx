@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -8,8 +8,11 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   function registerUser(e) {
     e.preventDefault();
-    data = axios.get("http://localhost:8080/test")
-    console.log(data);
+    axios.post("/register", {
+      name,
+      email,
+      password,
+    });
   }
   return (
     <div className="mt-4 grow flex items-center justify-around">
